@@ -13,6 +13,14 @@ export default function List({ urls }) {
         });
     }
 
+    function copyItem(item) {
+        navigator.clipboard.writeText(`${item.shortened_url}`);
+        toast.success("Copied to clipboard !", {
+            position: "bottom-right",
+            className: 'foo-bar'
+        });
+    }
+
     return (
         <>
             <div className="container mt-5">
@@ -24,11 +32,9 @@ export default function List({ urls }) {
                                     <div className="col-5 mt-2">{item.original_url}</div>
                                     <div className="col-6 mt-2">{item.shortened_url}</div>
                                     <div className="col-1">
-                                        <a className="btn btn-secondary btn-sm" onClick={() => {
-                                            navigator.clipboard.writeText(`${item.shortened_url}`); alert("Copied to clipboard.");
-                                        }}>
+                                        <button className="btn btn-secondary btn-sm" onClick={() => copyItem(item)}>
                                             Copy
-                                        </a>
+                                        </button>
                                         <button type="button" className="btn btn-sm btn-danger mx-1" aria-label="Close" onClick={() => deleteItem(item.id)}>
                                             <span aria-hidden="true">&times;</span>
                                         </button>
