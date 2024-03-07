@@ -10,7 +10,7 @@ export default function Index({ urls }) {
             <Navbar></Navbar>
             <div className="container mt-5">
                 <h1 className="font-weight-bold text-center">
-                    Free URL Shortener
+                    Free URL Shortener modify
                 </h1>
                 <Create></Create>
                 <List urls={urls}></List>
